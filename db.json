@@ -9,6 +9,16 @@
       "title": "Star Wars: A New Hope",
       "rating": "5",
       "id": 2
+    },
+    {
+      "title": "Step Brothers",
+      "rating": "5",
+      "id": 3
+    },
+    {
+      "title": "Pulp Fiction",
+      "rating": "5",
+      "id": 4
     }
   ]
 }

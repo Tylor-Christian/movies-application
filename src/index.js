@@ -21,20 +21,15 @@ $('#addMovie').click((e) => {
     $('.form-group').find('input:radio').prop('checked', false);
 });
 
-$('#close').click(() => {
-    console.log("close button clicked");
-});
-
 $('#editMovie').click((e) => {
     console.log("Edit clicked");
     console.log(e);
     e.preventDefault();
-    const dataId = ($(e.target).data('id'));
-    let editTitle = $('#titleEdit' + dataId).val();
+    let editTitle = $('#titleEdit').val();
     console.log("EDIT TITLE: " + editTitle);
-    let editRating = $(`input[name=ratingEdit]:checked + dataid`).val();
+    let editRating = $(`input[name=ratingEdit]:checked`).val();
     console.log("EDIT RATING: " + editRating);
-    post.editMovie({title: editTitle, rating: editRating}, dataId);
+    post.editMovie({title: editTitle, rating: editRating});
     setTimeout(function(){
         moviesRefresh();
     }, 1000);
@@ -48,7 +43,7 @@ function moviesRefresh() {
         console.log('Here are all the movies:');
         console.log(movies);
         movies.forEach(({title, rating, id}) => {
-            $("#movies").append(`<div>${title} - rating: ${rating}</div> <button id=${id} type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#editModal">Edit</button>`);
+            $("#movies").append(`<div>${title} - rating: ${rating}</div> <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#editModal">Edit</button>`);
             console.log(`id#${id} - ${title} - rating: ${rating}`);
         });
         $('#loader').addClass('hide');
@@ -67,13 +62,9 @@ const {getMovies} = require('./api.js');
 getMovies().then((movies) => {
     console.log('Here are all the movies:');
     console.log(movies);
-    let movieIds = 1;
-    let j = 0;
     movies.forEach(({title, rating, id}) => {
-        $("#movies").append(`<div>${title} - rating: ${rating}</div> <button data-id=${id} type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#editModal${id}">Edit</button>`);
+        $("#movies").append(`<div>${title} - rating: ${rating}</div> <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#editModal">Edit</button>`);
         console.log(`id#${id} - ${title} - rating: ${rating}`);
-        movieIds++;
-        j++;
     });
     $('#loader').addClass('hide');
     $('#myDiv').removeClass('hide').addClass('show');
