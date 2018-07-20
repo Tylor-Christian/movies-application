@@ -1,11 +1,10 @@
-const allMovies = '/api/movies';
-
 const getMovies = () => {
     return fetch('/api/movies')
         .then(response => response.json())
 };
 
 const addNewMovie = (addMovie) => {
+    const allMovies = '/api/movies';
     const options = {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
@@ -15,13 +14,15 @@ const addNewMovie = (addMovie) => {
         .then(response => response.json());
 };
 
-const editMovie = (editMovie) => {
+const editMovie = (editMovie, id) => {
+    const currentMovies = `/api/movies/${id}`;
+
     const options = {
-        method: 'POST',
+        method: 'PUT',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(editMovie)
     };
-    return fetch(allMovies, options)
+    return fetch(currentMovies, options)
         .then(response => response.json());
 };
 

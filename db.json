@@ -9,16 +9,6 @@
       "title": "Star Wars: A New Hope",
       "rating": "5",
       "id": 2
-    },
-    {
-      "title": "Harry Potter",
-      "rating": "5",
-      "id": 3
-    },
-    {
-      "title": "Godfather",
-      "rating": "5",
-      "id": 4
     }
   ]
 }
