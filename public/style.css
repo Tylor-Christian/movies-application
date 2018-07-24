@@ -1,14 +1,3 @@
-html, body {
-    /*height: 100%;*/
-}
-
-.container {
-    /*position: relative;*/
-    /*top: 100%;*/
-    /*transform: translateY(-100%);*/
-    /*text-align: center;*/
-}
-
 .hide{
     display: none;
 }

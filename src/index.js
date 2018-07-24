@@ -1,9 +1,9 @@
-/**
- * es6 modules and imports
- */
-import sayHello from './hello';
-
-sayHello('World');
+// /**
+//  * es6 modules and imports
+//  */
+// import sayHello from './hello';
+//
+// sayHello('World');
 
 $("#myDiv").addClass('hide');
 
@@ -15,34 +15,39 @@ const post = require('./api.js');
 // function apiMovieData(title) {
 //     $.ajax(apiLink + title + apiKey).done((data) => {
 //         console.log(data);
-//         $("").append(data.Poster);
+//         let movieImage = data.Poster;
+//         $(".moviePoster").src = movieImage;
+//         console.log(movieImage);
 //     });
 // }
-// apiMovieData("deadpool");
 
 /**
  * require style imports
  */
+
 function moviesRefresh() {
+    $('#myDiv').removeClass('show').addClass('hide');
+    $('#loader').addClass('show');
     post.getMovies().then((movies) => {
         $("#movies").html("");
         console.log('Here are all the movies:');
         console.log(movies);
         movies.forEach(({title, rating, id}) => {
             $("#movies").append(`
-                <div class="card col-4 text-dark m-1">
-                    <img class="card-img-top" src="" alt="Movie Image">
+                <div class="card col-3 w-100 bg-primary text-light m-4">
+                    <img class="card-img-top moviePoster" src="" alt="Movie Image">
                     <div class="card-body">
-                        <h5 class="card-title"><h2>${title}</h2></h5>
+                        <h2 class="card-title">${title}</h2>
+                        <h4>${rating}/5</h4>
                            <p class="card-text">Movie description</p>
-                            <button id=${id} type="button" class="btn btn-sm btn-outline-primary editButton" data-toggle="modal" data-target="#editModal">Edit</button>
+                            <button id=${id} type="button" class="btn btn-sm btn-secondary editButton" data-toggle="modal" data-target="#editModal">Edit</button>
                     </div>
                 </div>
-                <!--<div><h2>${title}</h2> Rating: ${rating}/5</div>-->
-        <!--<button id=${id} type="button" class="btn btn-sm btn-outline-primary editButton" data-toggle="modal" data-target="#editModal">Edit</button>-->`);
+                `);
+            // apiMovieData(`${title}`);
             console.log(`id#${id} - ${title} - rating: ${rating}`);
         });
-        $('#loader').addClass('hide');
+        $('#loader').removeClass('show').addClass('hide');
         $('#myDiv').removeClass('hide').addClass('show');
     }).then(() => {
         $('.editButton').click(function () {

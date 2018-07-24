@@ -1,13 +1,13 @@
 {
   "movies": [
     {
-      "title": "Casablanca",
-      "rating": "4",
+      "title": "King Kong",
+      "rating": "5",
       "id": 1
     },
     {
-      "title": "Star Wars: A New Hope",
-      "rating": "5",
+      "title": "Thor",
+      "rating": "4",
       "id": 2
     },
     {
@@ -16,9 +16,29 @@
       "id": 3
     },
     {
-      "title": "TESTETSTEST",
+      "title": "Pulp Fiction",
       "rating": "4",
       "id": 4
+    },
+    {
+      "title": "Harry Potter",
+      "rating": "5",
+      "id": 5
+    },
+    {
+      "title": "Lord of the Rings",
+      "rating": "4",
+      "id": 6
+    },
+    {
+      "title": "Deadpool",
+      "rating": "5",
+      "id": 7
+    },
+    {
+      "title": "Jurassic Park",
+      "rating": "5",
+      "id": 8
     }
   ]
 }
